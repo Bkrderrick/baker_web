@@ -1,0 +1,215 @@
+/* = applies to everything I do*/
+* {
+	box-sizing:border-box;  /* boxing size for ALL elements */
+}
+/* background AND styles for the body*/
+body {
+	background-color: #D2B48C;   /*  background color*/ 
+	color: #221811;    /* font color */
+	font-family: Tahoma, Arial, sans-serif;  /* fonts */
+	margin: 0;  /*Reset default margin from the code below */
+}
+/*styles for wrapper & ID selector*/
+#wrapper {
+	background-color: #231814;  /* set background color */
+	padding: 0;  /* Remove padding */
+}
+
+/*styles for the header element*/
+header {
+	background-color: #D2B48C;  /* background color of header*/
+	background-image: url(../images/cup.jpg);  /* put logo in the header*/
+	background-repeat: no-repeat; /* so image does not repeat */
+	padding-left: 105px;  /* padding to the left */
+	color: #231814;  /* text color*/
+	height: 128px;
+	padding-top: 5px;  /*padding to top*/
+	padding-bottom: 5px;  /*padding to bottom */
+}
+header a { text-decoration: none; }    /*removes underline from links*/
+header a:link { color: #231814;}
+header a:visited { color: #231814;}
+header a:hover { color: #FEF6C2;}
+/* styles for headers */
+h2, h3, h4, p, div, dl {
+	padding-left: 1em;  /*padding left for all above elements */
+	padding-right: 1em;   /* padding right for elements */
+}
+main ul {padding-left: 2em; }
+
+h1{ font-size: 2em; }  /* h1 font size */
+h2{color: #8C3826; }  /* h2 text color */
+h4{
+	background-color: #D2B48C; /*background color of h4 */
+	font-size: 1.2em; 
+	padding-left: .5em;
+	padding-bottom: 0; 
+	text-transform: uppercase;  /*capitalize ALL text */
+	border-bottom: 1px solid #221811; /* border on bottom styled */
+	clear: left;  /*clear float */
+	
+}
+h3, dt { color:#8C3826;}
+/*styles for the nav bar*/
+nav{
+	text-align: center;  /* text in center */
+	font-size:1.5em;
+}
+nav a {
+	text-decoration: none;  /* no underlining under text */
+}
+nav a:link {
+	color:#FEF6C2;
+}
+
+nav a:visited {
+	color: #D2B48C;
+}
+	
+nav a:hover {
+	color: #CC9933;
+}
+
+nav ul {
+	display:flex; /*use flex box*/
+	flex-direction:column; /* arrange in a column */
+	font-size: 1.25em;
+	list-style-type: none;  /*remove list bullet*/
+	margin: 0;
+	padding: 0;
+}
+nav li {
+	border-bottom:1px solid #FEF6C2; /* :none;
+	padding: .5em 1em;  /*adds padding */
+	width:100%; /* sets width */
+}
+main{
+	display:block;  /* browser issue*/
+	padding:0 0 2em 0;  /* padding for borders(clockwise */
+	background-color: #FEF6C2;
+
+}
+
+/*styles for images*/
+img {
+padding-left: 10px;
+padding-right: 10px;
+}
+/* styles for id, main image for Home*/
+#homehero{
+	height: 300px; 
+	background-image: url(../images/road.jpg);  /*image selected*/
+	background-repeat: no-repeat;  /* stops repeat of image*/
+	background-size:100% 100%; /* sets image to cover width the wrapper box creates*/
+}
+/*homemugs*/
+#heromugs{
+	height: 300px;
+	background-image: url(../images/threemugs.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%; 
+	}
+/*hero guitar*/
+#heroguitar{
+	height: 300px;
+	background-image: url(../images/guitar.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	}	
+	/*
+#flow {
+	display:flow;
+	flex-direction: row;
+}		
+	*/
+/*styles for mobile*/
+#mobile {display: inline;} 
+/*desktop styles */
+#desktop { display: none;}
+
+/*style of classes */
+.details { 
+	padding-left:20%;
+	padding-right:20%;
+	overflow:auto;
+
+} 
+.floatleft  {
+	float:left;
+	padding-right: 2em;
+	padding-bottom: 2em;
+}
+.onethird  {
+	float: left;
+	width:33%;
+	/*
+	
+	
+	*/
+}
+/*styles for the footer*/
+footer{
+	background-color: #D2B48C;
+	font-size: .60em;
+	font-style: italic;
+	text-align: center;
+	padding: 1em;  /* set padding to all sides*/
+	border-top: 2px solid #8C3826;  /* create a top border for footer */
+}
+
+/*media query for medium screen*/
+@media (min-width: 600px){
+	header{
+		padding-left: 0;
+		text-align: center;
+		}
+	h1{ font-size:3em; }
+	nav ul {
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		}
+	nav li {border-bottom: none;}
+	#homehero {
+		background-image: url(../images/hero.jpg);
+		height: 50vh;    /*50% for view height*/
+		}
+	#heromugs { background-image: url(../images/heromugs.jpg);}
+	#heroguitar { background-image: url(../images/heroguitar.jpg);}
+	#flow {
+		display: flex;
+		flex-direction: row;
+		}
+		/*styles for mobile*/
+	#mobile {display: none;}  
+		/*desktop styles */
+	#desktop { display: inline;}	
+	.details {
+		display: flex;
+		flex-direction: row;
+		}
+	h4 {
+		margin-left: 10%;
+		margin-right: 10%;
+		}
+	
+}
+
+/* Media Query for big screen Desktop */
+@media (min-width: 1024px) {
+    @supports(display:grid){
+		header {grid-area:header;}
+		nav{grid-area:nav;}
+		main{grid-area:main;}
+		footer{grid-area:footer;}
+		#wrapper {
+			display:grid;
+			grid-template:
+				"header header"
+				"nav    main"
+				"footer footer"
+				/ 200px;
+			}
+		nav ul { flex-direction:column;}
+		header {background-image: url(../images/coffeelogo.jpg);}
+	}
+}
